@@ -118,7 +118,7 @@ alias add mission-loop wp load wp-honeysuckle-loop.txt
 alias add mission-crossover wp load wp-honeysuckle-crossover.txt
 
 console menu add Volanti:Mission:Loop confirm "Mission-Loop?" mission-loop
-console menu add Volanti:Mission:Crossover confirm "Mission-Loop?" mission-crossover
+console menu add Volanti:Mission:Crossover confirm "Mission-Crossover?" mission-crossover
 
 # hold commands
 map icon -35.5853964 148.9684997 flag
