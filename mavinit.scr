@@ -1,0 +1,138 @@
+set numcells 12
+#set mavfwd_link 1
+set battwarn 0
+
+console add vrpm "VRPM: %.0f %.0f %.0f %.0f" ESC_TELEMETRY_1_TO_4.rpm[0],ESC_TELEMETRY_1_TO_4.rpm[1],ESC_TELEMETRY_1_TO_4.rpm[2],ESC_TELEMETRY_1_TO_4.rpm[3]
+console add SRng "SRng: %.0f" NAMED_VALUE_FLOAT["SlvRange"].value
+
+map set showahrs3pos 1
+map set showahrs2pos 1
+
+#console menu add Graphs:Volanti:BeaconRanges graph NAMED_VALUE_FLOAT[R44124].value NAMED_VALUE_FLOAT[R42757].value NAMED_VALUE_FLOAT[R6316].value
+#console menu add Graphs:Volanti:BeaconDist graph NAMED_VALUE_FLOAT[R44124].value*30 NAMED_VALUE_FLOAT[R42757].value*30 NAMED_VALUE_FLOAT[R6316].value*30
+#console menu add Graphs:Volanti:BeaconAges graph NAMED_VALUE_FLOAT[A44124].value NAMED_VALUE_FLOAT[A42757].value NAMED_VALUE_FLOAT[A6316].value
+
+#console menu add Graphs:Volanti:BeaconRanges graph NAMED_VALUE_FLOAT[R306268].value NAMED_VALUE_FLOAT[R304901].value NAMED_VALUE_FLOAT[R268460].value
+#console menu add Graphs:Volanti:BeaconDist graph NAMED_VALUE_FLOAT[R306268].value*30 NAMED_VALUE_FLOAT[R304901].value*30 NAMED_VALUE_FLOAT[R268460].value*30
+#console menu add Graphs:Volanti:BeaconAges graph NAMED_VALUE_FLOAT[A306268].value NAMED_VALUE_FLOAT[A304901].value NAMED_VALUE_FLOAT[A268460].value
+
+console menu add Graphs:Volanti:Airspeeds graph VFR_HUD.airspeed NAMED_VALUE_FLOAT["AS2"].value VFR_HUD.groundspeed
+
+#set speech 0
+
+module load kmlread
+# kml load Volanti/marulan_sypaq.kml
+
+map set circle_linewidth 4
+map circle -34.59480476 150.05446138 1500 blue
+
+
+set shownoise 0
+
+map icon -34.60196655 150.05657819 barrell
+map icon -34.59473912 150.05466343  barrell
+map icon -34.59405380 150.05312057  barrell
+
+
+map icon -34.5754075 150.0163906 barrell
+map icon -34.5775426 150.0532129 barrell
+map icon -34.59471782 150.05462176 barrell
+
+# module load SIYI
+# siyi connect
+
+console menu add "SIYI:Angle:Yaw 0 Pitch -45" siyi angle 0 -45
+console menu add "SIYI:Angle:Yaw 0 Pitch -70" siyi angle 0 -70
+console menu add "SIYI:Angle:Yaw -45 Pitch -45" siyi angle -45 -45
+console menu add "SIYI:Angle:Yaw -45 Pitch -70" siyi angle -45 -70
+console menu add "SIYI:Angle:Yaw 45 Pitch -45" siyi angle 45 -45
+console menu add "SIYI:Angle:Yaw 45 Pitch -70" siyi angle 45 -70
+console menu add "SIYI:Angle:Yaw -90 Pitch -45" siyi angle -90 -45
+console menu add "SIYI:Angle:Yaw -90 Pitch -70" siyi angle -90 -70
+console menu add "SIYI:Angle:Yaw 90 Pitch -45" siyi angle 90 -45
+console menu add "SIYI:Angle:Yaw 90 Pitch -70" siyi angle 90 -70
+
+console menu add "SIYI:AutoFlag:Enable" siyi set autoflag_enable 1
+console menu add "SIYI:AutoFlag:Disable" siyi set autoflag_enable 0
+
+console menu add SIYI:Palette:GloryHot siyi palette GloryHot
+console menu add SIYI:Palette:Rainbow siyi palette Rainbow
+console menu add SIYI:Palette:WhiteHot siyi palette WhiteHot
+console menu add SIYI:Palette:Sepia siyi palette Sepia
+console menu add SIYI:Palette:Ironbow siyi palette Ironbow
+console menu add SIYI:Palette:Night siyi palette Night
+console menu add SIYI:Palette:Aurora siyi palette Aurora
+console menu add SIYI:Palette:RedHot siyi palette RedHot
+console menu add SIYI:Palette:Jungle siyi palette Jungle
+console menu add SIYI:Palette:Medical siyi palette Medical
+console menu add SIYI:Palette:BlackHot siyi palette BlackHot
+
+console menu add Graphs:TerrainHeight graph TERRAIN_REPORT.current_height
+console menu add Graphs:CellVoltage graph SYS_STATUS.voltage_battery*0.001/6
+
+console menu add Graphs:SIYI:Rates graph NAMED_VALUE_FLOAT[CYAW_RT].value NAMED_VALUE_FLOAT[CPITCH_RT].value NAMED_VALUE_FLOAT[CROLL_RT].value
+console menu add Graphs:SIYI:Attitude graph NAMED_VALUE_FLOAT[CYAW].value NAMED_VALUE_FLOAT[CPITCH].value NAMED_VALUE_FLOAT[CYAW].value
+console menu add Graphs:SIYI:RatesYaw graph NAMED_VALUE_FLOAT[YAW_RT].value NAMED_VALUE_FLOAT[CYAW_RT].value
+console menu add Graphs:SIYI:RatesPitch graph NAMED_VALUE_FLOAT[PITCH_RT].value NAMED_VALUE_FLOAT[CPITCH_RT].value
+console menu add Graphs:SIYI:RatesYP graph NAMED_VALUE_FLOAT[YAW_RT].value NAMED_VALUE_FLOAT[CYAW_RT].value NAMED_VALUE_FLOAT[PITCH_RT].value NAMED_VALUE_FLOAT[CPITCH_RT].value
+console menu add Graphs:SIYI:Errors graph NAMED_VALUE_FLOAT[EYAW].value NAMED_VALUE_FLOAT[EPITCH].value
+console menu add Graphs:SIYI:Voltages graph NAMED_VALUE_FLOAT[VLT_R].value NAMED_VALUE_FLOAT[VLT_P].value NAMED_VALUE_FLOAT[VLT_Y].value
+console menu add Graphs:SIYI:Encoders graph NAMED_VALUE_FLOAT[ENC_R].value NAMED_VALUE_FLOAT[ENC_P].value NAMED_VALUE_FLOAT[ENC_Y].value
+console menu add Graphs:SIYI:Thresholds graph NAMED_VALUE_FLOAT[CLIMIT].value NAMED_VALUE_FLOAT[VTHRESH].value NAMED_VALUE_FLOAT[ATHRESH].value
+console menu add Graphs:SIYI:Mode graph NAMED_VALUE_FLOAT[CMODE].value
+console menu add Graphs:SIYI:ModeTime graph NAMED_VALUE_FLOAT[CMODE].time_boot_ms*0.001
+console menu add Graphs:SIYI:TMax graph NAMED_VALUE_FLOAT[TMAX].value
+console menu add Graphs:SIYI:EA_RP graph NAMED_VALUE_FLOAT[EA_R].value NAMED_VALUE_FLOAT[EA_P].value
+
+console menu add SIYI:Gain:'x2.0' siyi set gain_mul 2.0
+console menu add SIYI:Gain:'x1.5' siyi set gain_mul 1.5
+console menu add SIYI:Gain:'x1.0' siyi set gain_mul 1.0
+console menu add SIYI:Gain:'x0.75' siyi set gain_mul 0.75
+console menu add SIYI:Gain:'x0.5' siyi set gain_mul 0.5
+console menu add SIYI:Gain:'x0.25' siyi set gain_mul 0.25
+
+console menu add SIYI:Attitude:Encoders siyi set use_encoders 1
+console menu add SIYI:Attitude:Attitude siyi set use_encoders 0
+console menu add SIYI:Attitude:SendArduAtt siyi set att_send_hz 10
+console menu add SIYI:Attitude:NoSendArduAtt siyi set att_send_hz 0
+console menu add SIYI:Attitude:AddLOSRate siyi set los_correction 1
+console menu add SIYI:Attitude:NoLOSRate siyi set los_correction 0
+
+map icon -35.2945885 149.0051014 barrell
+map icon -35.27982453190643 149.0053839336567 barrell
+map icon -35.2829518 149.0090778 barrell
+map icon -35.2798169 149.0054337 barrell
+
+map icon -35.28230116 149.00661164 barrell
+
+siyi set yaw_rate 30
+siyi set pitch_rate 20
+
+output add 10.147.17.87:14551
+
+console menu add MotorTest:TestMotor1 confirm MotorTest1 motortest 1 0 10 3
+console menu add MotorTest:TestMotor1to4 confirm MotorTest1to4 motortest 1 0 10 3 4
+
+# missions
+alias add mission-loop wp load wp-honeysuckle-loop.txt
+alias add mission-crossover wp load wp-honeysuckle-crossover.txt
+
+console menu add Volanti:Mission:Loop confirm "Mission-Loop?" mission-loop
+console menu add Volanti:Mission:Crossover confirm "Mission-Loop?" mission-crossover
+
+# hold commands
+map icon -35.5853964 148.9684997 flag
+alias add hold command_int GLOBAL_TERRAIN_ALT DO_REPOSITION 0 0 0 1 0 0 -355853964 1489684997 100
+console menu add Volanti:HoldGuided confirm "Hold?" hold
+
+
+# the fire:
+map icon -35.5882733 148.9698032 barrell
+
+set flytoframe AGL
+
+
+graph TERRAIN_REPORT.current_height
+
+map set font_size 1
+

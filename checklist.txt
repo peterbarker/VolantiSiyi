@@ -1,0 +1,73 @@
+Assembly: Tail booms securely attached
+Assembly: Wings securely attached
+Assembly: Siyi securely attached
+
+Airframe: Control surfaces move freely, hinges intact
+Airframe: Control surface linkages secure, minimal play
+Airframe: Pitot tubes secure, unblocked, and free of damage
+Airframe: VTOL boom and pods free of damage
+Airframe: VTOL propellers free of damage
+Airframe: Pusher propeller free of damage
+Airframe: No excessive play in VTOL motors
+Airframe: Install batteries making sure they are secured in place
+Airframe: All hatches closed and secured
+
+PreFlight: NAIPS and weather check, log flight
+PreFlight: Connect the GCS to the aircraft
+PreFlight: With "mode manual" check for correct movement of all control surfaces
+PreFlight: Check automated flight controller pre-flight checks are passing
+PreFlight: Check airspeed from both pitots
+PreFlight: SIYI sdcard empty
+PreFlight: Visually assess the local area
+PreFlight: Check weather within aircraft limits
+PreFlight: Conduct pre-flight briefing
+PreFlight: Check radio communication devices
+PreFlight: Aircraft is oriented towards the next waypoint
+PreFlight: Check battery voltages
+PreFlight: Check communication links, video and camera settings
+PreFlight: Check if the ground area is clear to launch aircraft
+
+PreLaunch: Flight plan checked, uploaded, and verified
+PreLaunch: Airband radio on and correct frequency set
+PreLaunch: Airspace checked and free of manned traffic
+PreLaunch: Pitot tube covers removed
+PreLaunch: Flight area clear of people and livestock
+PreLaunch: Any alternative landing / holding areas identified
+PreLaunch: Brief all personnel
+PreLaunch: Crew clear on roles and responsibilities
+PreLaunch: Battery fully charged
+PreLaunch: Payload / camera set and configured for mission
+PreLaunch: Onboard sensors healthy
+PreLaunch: EKF healthy
+PreLaunch: Dual GPS signal healthy
+PreLaunch: For AUTO check at initial waypoint
+PreLaunch: Arm in QHOVER mode and check RPMs of all 4 VTOL rotors
+
+Mission: No crewed aircraft in vicinity
+Mission: Battery / Fuel level ok
+Mission: Aircraft telemetry ok
+Mission: Aircraft sensors working and ok
+Mission: No public in vicinity of mission and landing areas
+Mission: Weather ok for flight (not deteriorating)
+
+PostFlight: Enable autopilot safety ("arm safetyon")
+PostFlight: Disconnect batteries
+PostFlight: No damage to leading edge and wing surfaces
+PostFlight: Ailerons are free to move throughout travel with minimal play
+PostFlight: Ensure servo pushrods are secured
+PostFlight: Pitot tubes free of debris and undamaged
+PostFlight: Fit pitot covers
+PostFlight: Leading edge and surfaces free of damage
+PostFlight: Rudders and elevators free to move and have minimal play
+PostFlight: Fuselage surface free of damage
+PostFlight: VTOL boom and pod free of damage
+PostFlight: VTOL and pusher propellers free of damage
+PostFlight: Landing gear free of damage
+PostFlight: No fuel leaks
+PostFlight: Fuel fill port clean and secured
+PostFlight: Engine mounts secure and free of damage
+PostFlight: Engine wiring and connectors free of damage and secure
+PostFlight: Log fuel level
+PostFlight: replace fuel bung
+
+
